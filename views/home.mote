@@ -1,40 +1,31 @@
-<div class="hero-unit">
-  <h1>Promos MNL</h1>
+<div ng-app="promosApp" ng-controller="PromosCtrl">
+  <input type="text" ng-model="lala"/>
+  <span ng-bind="lala"></span>
 
-  <p>
-    Bringing the best deals to your doorstep
-  </p>
-</div>
 
-<h1>
-  Get started now!
-  <small>Clone <a href="https://github.com/citrusbyte/cuba-app">this app</a>
-  and get your project started.</small>
-</h1>
 
-<div class="row">
-  <center>
-    % Product.all.to_a.each_slice(3).each do |group|
-      % group.each do |product|
-        <div class="span3" style="height: 200px; margin: 0px;">
-          <a href="/deals/{{ product.id }}">
-            <div style="height: 90%; margin: 10px; border: 1px solid gray;">
-              <div style="height: 80%">
-                
-                  <img src="{{ product.image }}" style="width: 100%; height: 100%;"></img>
-                  {{ product.name }}
-                  <br/>
-                  Php {{ product.price_php }}
-                  <br/>
-                 
-                </a>
-              </div>
-            </div>
-          </a>
-        </div>
+  <div class="hero-unit">
+    <h1>Promos MNL</h1>
+
+    <p>
+      Bringing the best deals to your doorstep
+    </p>
+  </div>
+
+  <h1>
+    Get started now!
+    <small>Click on any deals below :D</small>
+  </h1>
+
+  <div class="row">
+    <center>
+      % Product.all.to_a.each_slice(3).each do |group|
+        % group.each do |product|
+          <div deal-tile product-name="{{ product.name }}" product-price="{{ product.price_php }}" product-image="{{ product.image }}" product-id="{{ product.id }}"></div>
+        % end
       % end
-    % end
-  </center>
-</div>
+    </center>
+  </div>
 
-<br/>
+  <br/>
+</div>
