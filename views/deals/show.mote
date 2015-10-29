@@ -1,0 +1,23 @@
+<div class="row">
+  <div class="span8">
+    <img src="{{ deal.image }}" style="width: 80%;"/>
+  </div>
+  <div class="span4">
+    <h2>
+      <center>
+        {{ deal.name }}
+      </center>
+    </h2>
+    <br/>
+    
+    <center>
+      {{ deal.description }}
+      <br/>
+      <br/>
+      <button class="btn btn-default">
+        Buy for only Php {{ deal.price_php }}
+      </button>
+    </center>
+  </div>
+</div>
+  

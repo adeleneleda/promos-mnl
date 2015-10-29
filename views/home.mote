@@ -1,56 +1,40 @@
 <div class="hero-unit">
-  <h1>Viva Cuba!</h1>
+  <h1>Promos MNL</h1>
 
   <p>
-    A small application developed using
-    <a href="http://cuba.is">Cuba</a> and <a
-    href="http://twitter.github.com/bootstrap/">Bootstrap</a>.
+    Bringing the best deals to your doorstep
   </p>
 </div>
 
-<h1 class="page-header">
+<h1>
   Get started now!
   <small>Clone <a href="https://github.com/citrusbyte/cuba-app">this app</a>
   and get your project started.</small>
 </h1>
 
 <div class="row">
-  <div class="span4">
-    <h3>What's included</h3>
-
-    <p>
-      This is a <a href="http://cuba.is">Cuba</a> app skeleton,
-      using <a href="http://github.com/soveran/mote">Mote</a> for
-      the views and <a href="http://ohm.keyvalue.org">Ohm</a>
-      for the models. The page you are looking at was generated
-      by <code>app.rb</code>, and the content is located at
-      <code>views/home.mote</code>.
-    </p>
-  </div>
-
-  <div class="span4">
-    <h3>Testing</h3>
-
-    <p>
-      There's a user story written for you at
-      <code>test/site.rb</code>. Start adding whatever you want to
-      test and then run <code>rake test</code>. For convenience, you
-      can also run <code>rake</code>, which just invokes <code>rake
-      test</code>.
-    </p>
-  </div>
-
-  <div class="span4">
-    <h3>Dependencies</h3>
-
-    <p>
-      All of the dependencies ideally should be pushed to
-      the <code>.gems</code> file, and should be required in
-      <code>shotgun.rb</code>.
-
-      It's not required, but it would ease your life a lot if you
-      use <code>dep</code> to manage the dependencies. More info <a
-      href="http://github.com/twpil/dep">here</a>.
-    </p>
-  </div>
+  <center>
+    % Product.all.to_a.each_slice(3).each do |group|
+      % group.each do |product|
+        <div class="span3" style="height: 200px; margin: 0px;">
+          <a href="/deals/{{ product.id }}">
+            <div style="height: 90%; margin: 10px; border: 1px solid gray;">
+              <div style="height: 80%">
+                
+                  <img src="{{ product.image }}" style="width: 100%; height: 100%;"></img>
+                  {{ product.name }}
+                  <br/>
+                  Php {{ product.price_php }}
+                  <br/>
+                 
+                </a>
+              </div>
+            </div>
+          </a>
+        </div>
+      % end
+    % end
+  </center>
 </div>
+
+<br/>
