@@ -118,10 +118,8 @@ class Admins < Cuba
             on root do
               deal = Product.create(name: name.strip, price_php: price.strip, description: description.strip)
 
-              if image
-                image = image.yield.first
-                upload_deal_image(deal, image)
-              end
+              image = image.yield.first rescue nil
+              upload_deal_image(deal, image) if image
 
               session[:success] = "Product #{ name }  successfully saved."
               res.redirect "/admin/deals/#{ deal.id }/edit"
@@ -130,10 +128,8 @@ class Admins < Cuba
             on ":id" do |id|
               deal = Product[id]
               on root do
-                if image
-                  image = image.yield.first
-                  upload_deal_image(deal, image)
-                end
+                image = image.yield.first rescue nil
+                upload_deal_image(deal, image) if image
 
                 deal.update(name: name.strip, price_php: price.strip, description: description.strip)
                 session[:success] = "Product #{ name }  successfully update."
