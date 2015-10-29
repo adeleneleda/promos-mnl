@@ -38,6 +38,8 @@
           <div class="nav-collapse">
             <ul class="nav">
               % if current_admin
+                <li><a href="/admin/deals/new">Add New Deal</a></li>
+                <li><a href="/admin/deals">All Deals</a></li>
                 <li><a href="/admin/logout">Logout</a></li>
               % end
             </ul>
