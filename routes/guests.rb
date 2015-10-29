@@ -103,5 +103,14 @@ class Guests < Cuba
                        title: "Password Reset", reset: reset)
       end
     end
+
+    on get do
+      on "deals" do
+        on ":id" do |id|
+          deal = Product[id]
+          res.write view("deals/show", title: "Promos MNL", deal: deal)
+        end
+      end
+    end
   end
 end

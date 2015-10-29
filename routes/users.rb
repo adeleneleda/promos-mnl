@@ -8,5 +8,14 @@ class Users < Cuba
       logout(User)
       res.redirect "/", 303
     end
+
+    on get do
+      on "deals" do
+        on ":id" do |id|
+          deal = Product[id]
+          res.write view("deals/show", title: "Promos MNL", deal: deal)
+        end
+      end
+    end
   end
 end
