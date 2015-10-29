@@ -11,5 +11,15 @@ README[1] contains the original README of the cuba-app
 gem install dep
 2) install gems in .gems
 dep install
-3) Use shotgun
+3) Make sure Redis is runnin on localhost port 6379
+4) Use shotgun
 shotgun config.ru
+
+
+### Test Accounts
+#### Admin: 
+admin@promosmnl.com
+password
+
+##### Storefront:
+Just signup with any account ;)
