@@ -2,7 +2,6 @@
   <div class="panel-body">
     <h3> New Deal </h3>
     <form action="/admin/deals" enctype="multipart/form-data" method="post">
-      <input name="user_id" type="hidden" value="<%= @user.id %>"></input>
       <div class="form-group">
         <label>Deal Name:</label>
         <input class="form-control" name="name" type="text"></input>

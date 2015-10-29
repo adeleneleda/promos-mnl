@@ -1,3 +1,27 @@
-EDIT
-
-{{ id }}
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3> New Deal </h3>
+    <form action="/admin/deals/{{ deal.id }}" enctype="multipart/form-data" method="post">
+      <div class="form-group">
+        <label>Deal Name:</label>
+        <input class="form-control" name="name" type="text" value="{{ deal.name || ' ' }}"></input>
+      </div>
+      <div class="form-group">
+        <label>Deal Price (PHP):</label>
+        <input class="form-control" name="price" type="text" value="{{ deal.price_php || ' '}}"></input>
+      </div>
+      <div class="form-group">
+        <label>Deal Description:</label>
+        <textarea class="form-control" name="description" rows="10" type="text">
+          {{ deal.description || ' '}}
+        </textarea>
+      </div>
+      <div class="form-group">
+        <input class="btn" name="image" type="file"></input>
+      </div>
+      <div class="form-group">
+        <input class="btn btn-default pull-right" type="submit" value="Update"></input>
+      </div>
+    </form>
+  </div>
+</div>

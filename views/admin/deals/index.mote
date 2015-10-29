@@ -3,24 +3,26 @@
     <h3>All Deals</h3>
     <table class="table table-bordered text-center">
       <tr>
-        <th class="text-center">Deal Name</th>
-        <th class="text-center">Price</th>
+        <th class="text-center" width="25%">Deal Name</th>
+        <th class="text-center" width="40%">Description</th>
+        <th class="text-center" width="20%">Price (PHP)</th>
         <th class="text-center">Posted On</th>
       </tr>
       % Product.all.each do |p|
         <tr>
           <td>
-            <a href="/posts/<%=  post.id  %>">
+            <a href="/admin/deals/{{ p.id }}/edit">
               {{ p.name }}
             </a>
           </td>
           <td>
-            <a href="/<%=  post.user.id  %>">
-              {{ p.price_php }}
-            </a>
+            {{ p.description }}
           </td>
           <td>
-            {{ p.description }}
+            {{ p.price_php }}
+          </td>
+          <td>
+            {{ p.created_at.strftime('%B %d, %Y') rescue '' }}
           </td>
         </tr>
       % end
