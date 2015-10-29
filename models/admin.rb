@@ -5,6 +5,8 @@ class Admin < Ohm::Model
   attribute :crypted_password
   unique :email
 
+  index :email
+
   def self.fetch(identifier)
     with(:email, identifier)
   end
