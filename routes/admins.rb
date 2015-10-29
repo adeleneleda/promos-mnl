@@ -84,20 +84,38 @@ class Admins < Cuba
           
 
           on ":id" do |id|
+            deal = Product[id]
+
+            on root do
+              res.redirect "/admin/deals/#{ deal.id }/edit"
+            end
             on "edit" do
-              res.write view("admin/deals/edit", title: 'Dashboard', id: id)
+              res.write view("admin/deals/edit", title: 'Dashboard', deal: deal)
             end
           end
         end
       end
 
-      on post, param("name"), param("price"), param("description") do |name, price, description|
-        on "deals" do
-          puts 'gg'*100
-          puts name
-          puts price
-          puts description
-          Product.create(name: name, price_php: price, description: description)
+      on post do
+        on param("name"), param("price"), param("description") do |name, price, description|
+
+          puts 'bb'*100
+          on "deals" do
+            on root do
+              deal = Product.create(name: name.strip, price_php: price.strip, description: description.strip)
+              session[:success] = "Product #{ name }  successfully saved."
+              res.redirect "/admin/deals/#{ deal.id }/edit"
+            end
+
+            on ":id" do |id|
+              deal = Product[id]
+              on root do
+                deal.update(name: name.strip, price_php: price.strip, description: description.strip)
+                session[:success] = "Product #{ name }  successfully update."
+                res.redirect "/admin/deals/#{ deal.id }/edit"
+              end
+            end
+          end
         end
       end
     end
