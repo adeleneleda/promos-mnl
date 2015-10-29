@@ -8,3 +8,4 @@ require "ohm"
 require "pbkdf2"
 require "shield"
 require "rack/protection"
+require 'ohm/contrib'
