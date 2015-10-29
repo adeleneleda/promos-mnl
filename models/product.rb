@@ -4,6 +4,7 @@ class Product < Ohm::Model
   attribute :name
   attribute :description
   attribute :price_php
+  attribute :image
   unique :name
 
   index :name
