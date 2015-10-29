@@ -24,4 +24,13 @@
       </div>
     </form>
   </div>
+  <br/>
+  <br/>
+  <br/>
+  <div>
+    <h3>Deal Image:</h3>
+    <center>
+      <img src="{{ deal.image }}" style="width: 75%;"/>
+    </center> 
+  </div>
 </div>
