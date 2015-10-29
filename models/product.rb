@@ -1,4 +1,5 @@
 class Product < Ohm::Model
+  include Ohm::Timestamps
 
   attribute :name
   attribute :description
