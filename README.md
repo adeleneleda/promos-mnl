@@ -18,8 +18,12 @@ shotgun config.ru
 
 ### Test Accounts
 #### Admin: 
-admin@promosmnl.com
-password
+username: admin@promosmnl.com
+password: password
 
 ##### Storefront:
 Just signup with any account ;)
+
+### URL
+localhost:9393
+localhost:9393/admin
