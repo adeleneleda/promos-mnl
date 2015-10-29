@@ -1,4 +1,4 @@
-# PromosMNL; Sample deal site app using Ruby and Cuba
+# PromosMNL; Sample e-commerce web application using Ruby and Cuba
 ## This deal site has the cuba-app (https://github.com/citrusbyte/cuba-app) by citrusbyte as its template.
 
 # NOTES
