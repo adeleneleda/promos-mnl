@@ -1,9 +1,4 @@
 <div ng-app="promosApp" ng-controller="PromosCtrl">
-  <input type="text" ng-model="lala"/>
-  <span ng-bind="lala"></span>
-
-
-
   <div class="hero-unit">
     <h1>Promos MNL</h1>
 
