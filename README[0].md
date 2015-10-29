@@ -11,3 +11,5 @@ README[1] contains the original README of the cuba-app
 gem install dep
 2) install gems in .gems
 dep install
+3) Use shotgun
+shotgun config.ru
