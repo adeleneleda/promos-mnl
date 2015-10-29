@@ -40,12 +40,12 @@ Cuba.define do
     res.write view("home", title: "Promos MNL")
   end
 
-  on authenticated(User) do
-    run Users
-  end
-
   on "admin" do
     run Admins
+  end
+
+  on authenticated(User) do
+    run Users
   end
 
   on default do
