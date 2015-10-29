@@ -1,0 +1,26 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3> New Deal </h3>
+    <form action="/admin/deals" enctype="multipart/form-data" method="post">
+      <input name="user_id" type="hidden" value="<%= @user.id %>"></input>
+      <div class="form-group">
+        <label>Deal Name:</label>
+        <input class="form-control" name="name" type="text"></input>
+      </div>
+      <div class="form-group">
+        <label>Deal Price (PHP):</label>
+        <input class="form-control" name="price" type="text"></input>
+      </div>
+      <div class="form-group">
+        <label>Deal Description:</label>
+        <textarea class="form-control" name="description" rows="10" type="text"></textarea>
+      </div>
+      <div class="form-group">
+        <input class="btn" name="image" type="file"></input>
+      </div>
+      <div class="form-group">
+        <input class="btn btn-default pull-right" type="submit" value="Publish"></input>
+      </div>
+    </form>
+  </div>
+</div>

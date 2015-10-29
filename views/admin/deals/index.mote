@@ -1,0 +1,29 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+    <h3>All Deals</h3>
+    <table class="table table-bordered text-center">
+      <tr>
+        <th class="text-center">Deal Name</th>
+        <th class="text-center">Price</th>
+        <th class="text-center">Posted On</th>
+      </tr>
+      % Product.all.each do |p|
+        <tr>
+          <td>
+            <a href="/posts/<%=  post.id  %>">
+              {{ p.name }}
+            </a>
+          </td>
+          <td>
+            <a href="/<%=  post.user.id  %>">
+              {{ p.price_php }}
+            </a>
+          </td>
+          <td>
+            {{ p.description }}
+          </td>
+        </tr>
+      % end
+    </table>
+  </div>
+</div>
