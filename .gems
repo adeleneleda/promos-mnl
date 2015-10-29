@@ -11,3 +11,4 @@ malone -v 1.0.0
 shield -v 2.1.0
 ohm -v 1.0.0.rc4
 ohm-contrib -v 2.2.0
+pry -v 0.10.3
