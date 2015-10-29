@@ -70,6 +70,36 @@ class Admins < Cuba
       on root do
         res.redirect "/admin/dashboard", 303
       end
+
+      on get do
+        on "deals" do
+          on root do
+            res.write view("admin/deals/index", title: "Dashboard")
+          end
+
+          on "new" do
+            res.write view("admin/deals/new", title: "Dashboard")
+          end
+
+          
+
+          on ":id" do |id|
+            on "edit" do
+              res.write view("admin/deals/edit", title: 'Dashboard', id: id)
+            end
+          end
+        end
+      end
+
+      on post, param("name"), param("price"), param("description") do |name, price, description|
+        on "deals" do
+          puts 'gg'*100
+          puts name
+          puts price
+          puts description
+          Product.create(name: name, price_php: price, description: description)
+        end
+      end
     end
 
     # CASE 3: You're not authorized, hence you get a 401.
