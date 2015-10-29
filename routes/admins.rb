@@ -24,6 +24,20 @@ class Admins < Cuba
     return path
   end
 
+
+  def upload_deal_image(deal, image)
+    dir = "public/uploads/#{ deal.id }/images"
+    FileUtils.mkdir_p(dir) unless File.exist?(dir)
+
+    filename = "#{ dir }/" + image[:filename]
+    File.open("#{ filename }", "w+") do |f|
+      f.write(image[:tempfile].read)
+    end
+
+    @fullpath = File.expand_path(filename)
+
+    deal.update(image: "/" + filename.sub('public/', ''))
+  end
   # The admin handlers are divided into three different cases:
   #
   # CASE 1: You hit /admin/login
@@ -98,11 +112,17 @@ class Admins < Cuba
 
       on post do
         on param("name"), param("price"), param("description") do |name, price, description|
+          image = param("image")
 
-          puts 'bb'*100
           on "deals" do
             on root do
               deal = Product.create(name: name.strip, price_php: price.strip, description: description.strip)
+
+              if image
+                image = image.yield.first
+                upload_deal_image(deal, image)
+              end
+
               session[:success] = "Product #{ name }  successfully saved."
               res.redirect "/admin/deals/#{ deal.id }/edit"
             end
@@ -110,6 +130,11 @@ class Admins < Cuba
             on ":id" do |id|
               deal = Product[id]
               on root do
+                if image
+                  image = image.yield.first
+                  upload_deal_image(deal, image)
+                end
+
                 deal.update(name: name.strip, price_php: price.strip, description: description.strip)
                 session[:success] = "Product #{ name }  successfully update."
                 res.redirect "/admin/deals/#{ deal.id }/edit"
