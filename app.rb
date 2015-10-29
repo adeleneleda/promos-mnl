@@ -37,7 +37,7 @@ Cuba.define do
   persist_session!
 
   on root do
-    res.write view("home", title: "VV")
+    res.write view("home", title: "Promos MNL")
   end
 
   on authenticated(User) do
@@ -52,3 +52,19 @@ Cuba.define do
     run Guests
   end
 end
+
+
+
+def initialize_admin!
+  Admin.create("email" => admin_email, "password" => "password") unless admin
+end
+
+def admin
+  Admin.fetch('admin@promosmnl.com')
+end
+
+def admin_email
+  "admin@promosmnl.com"
+end
+
+initialize_admin!
