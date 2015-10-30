@@ -2,6 +2,13 @@
   <div class="hero-unit">
     <h1>Promos MNL</h1>
 
+
+    <div ng-repeat="i in [1,2,3,4,5]">
+      {[ i ]}
+    </div>
+
+    {[ 85 * 5 ]}
+
     <p>
       Bringing the best deals to your doorstep
     </p>
